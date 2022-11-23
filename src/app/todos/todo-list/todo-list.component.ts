@@ -12,13 +12,15 @@ export class TodoListComponent implements OnInit {
 
   todos: Todo[] = [];
 
+  filter: string = 'all';
+
   constructor( private store: Store<AppState> ) { }
 
   ngOnInit(): void {
 
     this.store.select('todos').subscribe(todos => this.todos = todos);
 
-    console.log(this.todos);
+    this.store.select('filter').subscribe(filter => this.filter = filter);
 
 
   }
