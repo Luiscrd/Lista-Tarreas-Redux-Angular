@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -17,6 +17,8 @@ export class TodoItemComponent implements OnInit {
 
   txtEdit!: FormControl;
 
+  editing: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -24,6 +26,23 @@ export class TodoItemComponent implements OnInit {
     this.chkComplited = new FormControl(this.todo.completed);
 
     this.txtEdit = new FormControl(this.todo.text, [Validators.required])
+  }
+
+  edit(inputText: HTMLInputElement) {
+
+    this.editing = true;
+
+    setTimeout(() => {
+      inputText.select();
+    }, 1);
+
+
+
+  }
+
+  save() {
+    this.editing = false;
+    console.log('hola');
   }
 
 }
