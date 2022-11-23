@@ -9,3 +9,5 @@ export const toogleAll = createAction('[Todo] ToogleAllTodo', props<{completed: 
 export const edit = createAction('[Todo] EditTodo', props<{id: string, text: string}>());
 
 export const deleteTodo = createAction('[Todo] DeleteTodo', props<{id: string}>());
+
+export const clearCompleted = createAction('[Todo] ClearTodo');
