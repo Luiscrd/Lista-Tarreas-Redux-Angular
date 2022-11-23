@@ -3,7 +3,7 @@ import { Todo } from '../models/todo.model';
 import { FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.reducer';
-import { toogle } from '../todo.actions';
+import { edit, toogle } from '../todo.actions';
 
 
 
@@ -49,7 +49,7 @@ export class TodoItemComponent implements OnInit {
 
   save() {
     this.editing = false;
-    console.log('hola');
+    this.store.dispatch(edit({id: this.todo.id, text: this.txtEdit.value}));
   }
 
 }
