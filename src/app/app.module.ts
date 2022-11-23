@@ -7,6 +7,9 @@ import { TodosModule } from './todos/todos.module';
 import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './todos/toto.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +21,9 @@ import { todoReducer } from './todos/toto.reducer';
     BrowserModule,
     AppRoutingModule,
     TodosModule,
-    StoreModule.forRoot({ count: todoReducer })
+    StoreModule.forRoot({ TodoList: todoReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
