@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosModule } from './todos/todos.module';
 import { FooterComponent } from './footer/footer.component';
+import { StoreModule } from '@ngrx/store';
+import { todoReducer } from './todos/toto.reducer';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TodosModule
+    TodosModule,
+    StoreModule.forRoot({ count: todoReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
